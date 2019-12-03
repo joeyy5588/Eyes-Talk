@@ -2,6 +2,7 @@ from detect_blinks1 import *
 from tkinter import *
 import time
 import math
+import pyautogui
 
 
 headers1 = ['ㄅ', 'ㄆ', 'ㄇ', 'ㄈ']
@@ -10,9 +11,9 @@ headers3 = ['ㄍ', 'ㄎ', 'ㄏ']
 headers4 = ['ㄐ', 'ㄑ', 'ㄒ']#must with body
 headers5 = ['ㄓ', 'ㄔ', 'ㄕ', 'ㄖ']
 headers6 = ['ㄗ', 'ㄘ', 'ㄙ']
-headers7 = ['ㄦ']
+headers7 = ['確認']
 utility = ['左', '右', '上', '下', '後退']
-headers = headers1 + headers2 + headers3 + headers4 + headers5 + headers6 + headers7
+headers = headers7 + headers1 + headers2 + headers3 + headers4 + headers5 + headers6
 body = ['ㄧ', 'ㄨ', 'ㄩ']
 tail = ['ㄚ', 'ㄛ', 'ㄜ', 'ㄝ', 'ㄞ', 'ㄟ', 'ㄠ', 'ㄡ', 'ㄢ', 'ㄣ', 'ㄤ', 'ㄥ']
 sound = ['-', 'ˊ', 'ˇ', 'ˋ', '˙']
@@ -20,104 +21,104 @@ sound = ['-', 'ˊ', 'ˇ', 'ˋ', '˙']
 root = Tk()
 def actions(c):
 	if c == 'ㄅ':
-		print(c)
+		pyautogui.typewrite('1',0.25)
 	elif c == 'ㄆ':
-		print(c)
+		pyautogui.typewrite('q',0.25)
 	elif c == 'ㄇ':
-		print(c)
+		pyautogui.typewrite('a',0.25)
 	elif c == 'ㄈ':
-		print(c)
+		pyautogui.typewrite('z',0.25)
 	elif c == 'ㄉ':
-		print(c)
+		pyautogui.typewrite('2',0.25)
 	elif c == 'ㄊ':
-		print(c)
+		pyautogui.typewrite('w',0.25)
 	elif c == 'ㄋ':
-		print(c)
+		pyautogui.typewrite('s',0.25)
 	elif c == 'ㄌ':
-		print(c)
+		pyautogui.typewrite('x',0.25)
 	elif c == 'ㄍ':
-		print(c)
+		pyautogui.typewrite('e',0.25)
 	elif c == 'ㄎ':
-		print(c)
+		pyautogui.typewrite('d',0.25)
 	elif c == 'ㄏ':
-		print(c)
+		pyautogui.typewrite('c',0.25)
 	elif c == 'ㄐ':
-		print(c)
+		pyautogui.typewrite('r',0.25)
 	elif c == 'ㄑ':
-		print(c)
+		pyautogui.typewrite('f',0.25)
 	elif c == 'ㄒ':
-		print(c)
+		pyautogui.typewrite('v',0.25)
 	elif c == 'ㄓ':
-		print(c)
+		pyautogui.typewrite('5',0.25)
 	elif c == 'ㄔ':
-		print(c)
+		pyautogui.typewrite('t',0.25)
 	elif c == 'ㄕ':
-		print(c)
+		pyautogui.typewrite('g',0.25)
 	elif c == 'ㄖ':
-		print(c)
+		pyautogui.typewrite('b',0.25)
 	elif c == 'ㄗ':
-		print(c)
+		pyautogui.typewrite('y',0.25)
 	elif c == 'ㄘ':
-		print(c)
+		pyautogui.typewrite('h',0.25)
 	elif c == 'ㄙ':
-		print(c)
+		pyautogui.typewrite('n',0.25)
 	elif c == 'ㄧ':
-		print(c)
+		pyautogui.typewrite('u',0.25)
 	elif c == 'ㄨ':
-		print(c)
+		pyautogui.typewrite('j',0.25)
 	elif c == 'ㄩ':
-		print(c)
+		pyautogui.typewrite('m',0.25)
 	elif c == 'ㄚ':
-		print(c)
+		pyautogui.typewrite('8',0.25)
 	elif c == 'ㄛ':
-		print(c)
+		pyautogui.typewrite('i',0.25)
 	elif c == 'ㄜ':
-		print(c)
+		pyautogui.typewrite('k',0.25)
 	elif c == 'ㄝ':
-		print(c)
+		pyautogui.typewrite(',',0.25)
 	elif c == 'ㄞ':
-		print(c)
+		pyautogui.typewrite('9',0.25)
 	elif c == 'ㄟ':
-		print(c)
+		pyautogui.typewrite('o',0.25)
 	elif c == 'ㄠ':
-		print(c)
+		pyautogui.typewrite('l',0.25)
 	elif c == 'ㄡ':
-		print(c)
+		pyautogui.typewrite('.',0.25)
 	elif c == 'ㄢ':
-		print(c)
+		pyautogui.typewrite('0',0.25)
 	elif c == 'ㄣ':
-		print(c)
+		pyautogui.typewrite('p',0.25)
 	elif c == 'ㄤ':
-		print(c)
+		pyautogui.typewrite(';',0.25)
 	elif c == 'ㄥ':
-		print(c)
-	elif c == 'ㄦ':
-		print(c)
+		pyautogui.typewrite('/',0.25)
+	elif c == '確認':
+		pyautogui.press('enter')
 	elif c == '-':
-		print(c)
+		pyautogui.press('space')
 	elif c == 'ˊ':
-		print(c)
+		pyautogui.typewrite('6',0.25)
 	elif c == 'ˇ':
-		print(c)
+		pyautogui.typewrite('3',0.25)
 	elif c == 'ˋ':
-		print(c)
+		pyautogui.typewrite('4',0.25)
 	elif c == '上':
-		print(c)
+		pyautogui.press('up')
 	elif c == '下':
-		print(c)
+		pyautogui.press('down')
 	elif c == '左':
-		print(c)
+		pyautogui.press('left')
 	elif c == '右':
-		print(c)
+		pyautogui.press('right')
 	elif c == '後退':
-		print(c)
+		pyautogui.press('backspace')
 def show_row(row = -1, col = -1, type = 0):#type: 0->headers 1->body 2->tail 3->sound
 	if type == 0:
 		alpha_array = utility + headers + body
 		while(len(alpha_array) < 30):
 			alpha_array += ' '
 	elif type == 1:
-		alpha_array = utility + body + tail
+		alpha_array = utility + body + tail + sound
 		while(len(alpha_array) < 30):
 			alpha_array += ' '
 	elif type == 2:
@@ -154,7 +155,7 @@ def show_col(row = -1, col = -1, type = 0):
 		while(len(alpha_array) < 30):
 			alpha_array += ' '
 	elif type == 1:
-		alpha_array = utility + body + tail
+		alpha_array = utility + body + tail + sound
 		while(len(alpha_array) < 30):
 			alpha_array += ' '
 	elif type == 2:
@@ -192,6 +193,11 @@ def pressrow(row, col, type):
 			row -= 1
 	elif type == 2:
 		if row == 0:
+			row = 4
+		else:
+			row -= 1
+	elif type == 3:
+		if row == 0:
 			row = 1
 		else:
 			row -= 1
@@ -210,7 +216,7 @@ def presscol(row, col, type):
 		else:
 			type = 1
 	elif type == 1:
-		alpha_array = utility + body + tail
+		alpha_array = utility + body + tail + sound
 		while(len(alpha_array) < 30):
 			alpha_array += ' '
 		actions(alpha_array[5*row+col])
@@ -219,6 +225,8 @@ def presscol(row, col, type):
 				type = 0
 			else:
 				type = 1
+		elif row == 4:
+			type = 0
 		else:
 			type = 2
 	elif type == 2:
@@ -240,7 +248,7 @@ def presscol(row, col, type):
 			if col == 0 or col == 1:
 				type = 0
 			else:
-				type = 3 
+				type = 3
 		else:
 			type = 3
 	elif type == 3:
@@ -263,21 +271,22 @@ def show(vs, detect, row = -1, col = -1, state = 0, type = 0):#state:0->choose r
 	press = False
 	(m ,key)= confirm_status(vs,detect)
 	if state == 0:
-		if m == 1:
+		if (m == 1) and (detect.response[-2] == 0):
+			print("get")
 			state = 1
 			#row, col, type = pressrow(row, col, type)
 		else:
 			if type == 0:
 				row = (row+1)%6
 			elif type == 1:
-				row = (row+1)%4
+				row = (row+1)%5
 			elif type == 2:
 				row = (row+1)%5
 			elif type == 3:
 				row = (row+1)%2
 		show_row(row, col, type)		
-	elif state == 1:
-		if m == 1:
+	elif state == 1 :
+		if (m == 1) and (detect.response[-2] == 0):
 			state = 0
 			press =True
 		else:
@@ -289,7 +298,7 @@ def show(vs, detect, row = -1, col = -1, state = 0, type = 0):#state:0->choose r
 def initialize():
 	"""Constructor method"""
 	root.title('EYES TALK') 
-	root.geometry('800x600')
+	root.geometry('400x300+0+0')
 	
 				
 

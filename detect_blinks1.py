@@ -29,19 +29,22 @@ class detector():
         self.t0 = time.time()
         self.lastdown = 0
         self.t1 = 0
+        self.response = []
         
         
     def get_rects(self,frame):
         
         rects = self.detector(frame, 0)
-        
-        return rects[0]
+        if rects == None:
+            return 0
+        else:
+            return rects[0]
     
     def get_ear(self, picture):
-        
         rect = self.get_rects(picture)
+        if rect == 0:
+            return 0
         shape = self.predictor(picture, rect)
-        
         shape = face_utils.shape_to_np(shape)
         
         self.leftEye = shape[self.lStart:self.lEnd]
@@ -61,9 +64,9 @@ class detector():
         B = dist.euclidean(eye[2], eye[4])   
         C = dist.euclidean(eye[0], eye[3])
 
-        ear = (A + B) / (2.0 * C)
+        self.ear = (A + B) / (2.0 * C)
 
-        return ear
+        return self.ear
     
     def draw(self, frame):
         
@@ -72,29 +75,26 @@ class detector():
         
         cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
         cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+        frame = cv2.resize(frame, (400,300))  
         cv2.imshow("Frame", frame)
+        cv2.moveWindow('Frame',0,300)
+        cv2.resizeWindow('Frame', 400,300)
         
     def get_status(self, vs):
-        
         ret, frame = vs.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        #vs frame to grayscale
         ear = self.get_ear(gray)
-        #get the eye aspect ratio
         self.draw(frame)
         if ear < self.EYE__RATIO_THRES:
             self.detect.append(0)
         else:
             self.detect.append(1)
-        #append the detection list
         self.t1 = time.time()
-#        print(self.t1-self.t0)
         if self.t1 - self.t0 > 0.5:
-            if sum(self.detect[-8:-1]) > 5: # count the past few frames to eliminate the errors
+            if sum(self.detect[-5:-1]) > 3: # count the past few frames to eliminate the errors
                 self.status.append(1)
             else:
                 self.status.append(0)
-        #get the actually eyestatus
             if self.status[-2] ==1 and self.status[-1] == 0:
                 self.lastdown = self.t1
             if self.status[-1] == 0:
@@ -112,30 +112,17 @@ class detector():
 def confirm_status(vs,detector):
     a = 0
     key = 0
-    for i in range(45):
+    for i in range(20):
         a += detector.get_status(vs)
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
             return(0,key)
-    if a > 15:
+    print(a)
+    print(detector.ear)
+
+    if a >= 8:
+        detector.response.append(1)
         return (1,key)
     else:
+        detector.response.append(0)
         return (0,key)
-'''
-if __name__ == '__main__':
-    EYE_AR_THRESH = 0.16
-    FRAME_THRES = 0.5
-    vs = cv2.VideoCapture(0)
-    fileStream = True
-    detect = detector(EYE_AR_THRESH,FRAME_THRES)
-
-    while True:
-        (m ,key)= confirm_status(vs,detect)
-        print(m)
-        
-        if key == ord("q"):
-            break
-    detect.plot_status()
-    cv2.destroyAllWindows()
-    vs.release()
-'''
