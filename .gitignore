@@ -1,0 +1,9 @@
+input/
+*.mp4
+*.prproj
+*.pptx
+*.pt
+*.dat
+blink-detection/
+Adobe Premiere Pro Auto-Save/
+__pycache__
