@@ -1,7 +1,7 @@
 # Eyes-Talk
 
 ## Introduction
-A blink-detection method allowing physically impaired to select desire Mandarin Phonetic Symbol by blinking.
+A blink-detection method allowing physically impaired to select desire Mandarin Phonetic Symbol by calculating the blinking period.
 
 ## Usage
 ```
